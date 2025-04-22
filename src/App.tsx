@@ -1,25 +1,45 @@
 import React from 'react';
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
 import './App.css';
 
+
+type User = {
+  name: string;
+  email?: string; // add other fields as needed
+  age?: number;
+};
+
 function App() {
+  const [users, setUsers] = useState<User[]>([]);
+  
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const res = await fetch('http://localhost:5000/api/users');
+        const data = await res.json();  // <== you need this
+        console.log(data);
+        if (data?.length)
+          setUsers(data);
+      } catch (err) {
+        console.error('Error fetching data:', err);
+      }
+    }
+
+    fetchData();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h2>List of Users</h2>
+      <ul>
+        { 
+          users.map((user, index) => (
+            <li key={index}>
+              name: {user?.name || ''}</li>
+          ))
+        }
+      </ul>
+    </>
   );
 }
 

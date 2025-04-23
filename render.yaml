@@ -1,0 +1,6 @@
+services:
+  - type: static
+    name: personal-profile-client
+    rootDir: personal-profile-client
+    buildCommand: npm run build
+    publishDir: dist

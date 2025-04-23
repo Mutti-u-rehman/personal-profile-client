@@ -15,7 +15,10 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await fetch('http://localhost:5000/api/users');
+        const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+        const get_all_users_url = `${BASE_URL}/users`;
+        const res = await fetch(get_all_users_url);
+        console.log(BASE_URL);
         const data = await res.json();  // <== you need this
         console.log(data);
         if (data?.length)

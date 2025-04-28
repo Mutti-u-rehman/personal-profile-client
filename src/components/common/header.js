@@ -38,31 +38,19 @@ const Header = () => {
             <header className='flex justify-between items-center'>
                 <div className=''>
                     <p>My Profile</p>
-                    <i className="fa fa-home"></i>
-
-                    {/* <i className="fa-mail"></i> */}
-                    {/* <img src='imageUrl' /> */}
-                    {/* <img src={settingIcon} /> */}
-                    {/* <Icon name="setting.svg" folder="images" alt="Setting Icon" className="w-6 h-6" /> */}
                 </div>
 
-                {/* <div className='flex gap-4'>
+                <div className='flex gap-4'>
                     {menuList.map((menu, index) => {
                         const { name, icon, link, title } = menu;
-                        const iconAddress = '/assets/icons/';
                         return (
                             <div key={index} className='flex items-center gap-2'>
-                                <img
-                                    src='/assets/icons/setting.svg'
-                                    // src={`${iconAddress}${icon}`}
-                                    // alt={`${title} icon`}
-                                    // className="size-6 text-blue-500"
-                                />
+                                <i className={`fa fa-${icon}`}></i>
                                 <Link to={link} className='text-sm'>{title}</Link>
                             </div>
                         );
                     })}
-                </div> */}
+                </div>
             </header>
         </>
     );

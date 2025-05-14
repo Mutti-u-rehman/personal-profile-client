@@ -3,6 +3,7 @@ import MENU from './menu.constant';
 import { Link } from 'react-router';
 // import settingIcon from '../../assets/icons/setting.svg?url';
 // import Icon from './icon';
+import "./hearder.css";
 
 
 const Header = () => { 
@@ -30,7 +31,7 @@ const Header = () => {
             }
         }
 
-        fetchData();
+        // fetchData();
     }, []);
 
     return (
@@ -44,7 +45,7 @@ const Header = () => {
                     {menuList.map((menu, index) => {
                         const { name, icon, link, title } = menu;
                         return (
-                            <div key={index} className='flex items-center gap-2 text-green-900 hover:text-green-400'>
+                            <div key={index} className='header-nav__effect flex items-center gap-2 text-green-900 hover:text-green-400'>
                                 <i className={`fa fa-${icon}`}></i>
                                 <Link to={link} className='text-sm'>{title}</Link>
                             </div>

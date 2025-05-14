@@ -1,10 +1,18 @@
+import { useState } from 'react';
 import Card from './card';
 
-const Accordion = () => {
+const Accordion = ({ id, currentActiveExpensionPanel, setAccordion}) => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    // If any other accordion is open, close it
+    if (id !== currentActiveExpensionPanel && isOpen) {
+        setIsOpen(false);
+    }
 
     // Accordion click handler
     const accordionClickHandler = () => { 
-        console.log('Accordion clicked');
+        setAccordion(isOpen ? -1 : id);
+        setIsOpen(!isOpen);
     }
 
     return (
@@ -24,16 +32,20 @@ const Accordion = () => {
                 </div>
 
                 {/* Accordion content */}
-                <div className="expension-panel-content mt-4">
-                    <p>this is going to be the long empty text that we are going to put here in the end of the text</p>
-                    <p>this is going to be the long empty text that we are going to put here in the end of the text</p>
-                    <p>this is going to be the long empty text that we are going to put here in the end of the text</p>
-                    <p>this is going to be the long empty text that we are going to put here in the end of the text</p>
-                </div>
+                {
+                    isOpen &&
+                    <div className="expension-panel-content mt-4">
+                        <p>this is going to be the long empty text that we are going to put here in the end of the text</p>
+                        <p>this is going to be the long empty text that we are going to put here in the end of the text</p>
+                        <p>this is going to be the long empty text that we are going to put here in the end of the text</p>
+                        <p>this is going to be the long empty text that we are going to put here in the end of the text</p>
+                    </div>
+                }
             </div>
         </>
     );
 }
 
-const ExpendionPanel = () =>  <Card><Accordion /></Card>;
+const ExpendionPanel = (props) => <Card><Accordion {...props} /></Card>;
+// export {Accordion};
 export default ExpendionPanel;

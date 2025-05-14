@@ -1,16 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import MENU from './menu.constant';
 import { Link } from 'react-router';
-// import settingIcon from '../../assets/icons/setting.svg?url';
-// import Icon from './icon';
 import "./hearder.css";
 
 
 const Header = () => { 
-    // const imageUrl = new URL(
-    //     'mutti.jpg?as=webp&width=250',
-    //     import.meta.url
-    // );
     const [users, setUsers] = useState([]);
     const menuList = MENU; 
 

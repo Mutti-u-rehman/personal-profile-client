@@ -5,6 +5,7 @@ import Header from "./components/common/header";
 import { createBrowserRouter, Outlet } from "react-router";
 import ExpendionPanel from "./components/shared/expension-panel";
 import AllInOne from "./pages/allInOne";
+import Experience from "./components/shared/experience";
 
 
 const root = ReactDom.createRoot(document.getElementById("root"));
@@ -23,7 +24,7 @@ export default function AppLayout() {
 
   
   return (
-    <div className="max-w-[1920] h-vh mx-auto bg-green-100">
+    <div className="app-wrapper max-w-[1920] h-vh mx-auto">
       <div className={`sticky top-0 bg-white md:px-6 sm:px-3 ${scrolled ? "shadow-xl shadow-green-200":""}`}>
         <Header />
       </div>
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: 'all-in-one',
         element: <AllInOne />
+      },
+      {
+        path: 'experience',
+        element: <Experience />
       }
     ]
   }

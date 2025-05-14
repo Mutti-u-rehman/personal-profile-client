@@ -35,16 +35,16 @@ const Header = () => {
 
     return (
         <>
-            <header className='flex justify-between items-center'>
-                <div className=''>
+            <header className='flex justify-between items-center py-4'>
+                <div className='p-3  text-green-900'>
                     <p>My Profile</p>
                 </div>
 
-                <div className='flex gap-4'>
+                <div className='flex xl:gap-6 md:gap-4 sm:gap-2'>
                     {menuList.map((menu, index) => {
                         const { name, icon, link, title } = menu;
                         return (
-                            <div key={index} className='flex items-center gap-2'>
+                            <div key={index} className='flex items-center gap-2 text-green-900 hover:text-green-400'>
                                 <i className={`fa fa-${icon}`}></i>
                                 <Link to={link} className='text-sm'>{title}</Link>
                             </div>

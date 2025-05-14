@@ -11,8 +11,10 @@ const root = ReactDom.createRoot(document.getElementById("root"));
 
 export default function AppLayout() {
   return (
-    <div className="app-wrapper">
-      <Header />
+    <div className="max-w-[1920] mx-auto bg-green-100">
+      <div className="sticky top-0 bg-white shadow-lime-50 md:px-6 sm:px-3">
+        <Header />
+      </div>
       <Outlet />
     </div>
   );

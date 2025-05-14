@@ -24,7 +24,7 @@ const Accordion = ({ id, currentActiveExpensionPanel, setAccordion}) => {
                 <div className="flex justify-between py-3"> 
                     <div className="flex gap-1">
                         <span className="font-bold">Accordion Heading</span>
-                        <span className="font-semibold">24 $</span>
+                        <span className="font-semibold">{ id } $</span>
                     </div>
                     <div>
                         <i className="fa-solid fa-chevron-down" onClick={() => {accordionClickHandler()}}></i>

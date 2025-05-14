@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDom from "react-dom/client";
 import { RouterProvider } from "react-router";
 import Header from "./components/common/header";
@@ -10,9 +10,21 @@ import AllInOne from "./pages/allInOne";
 const root = ReactDom.createRoot(document.getElementById("root"));
 
 export default function AppLayout() {
+
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => { 
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 0);
+    }
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  
   return (
-    <div className="max-w-[1920] mx-auto bg-green-100">
-      <div className="sticky top-0 bg-white shadow-lime-50 md:px-6 sm:px-3">
+    <div className="max-w-[1920] h-vh mx-auto bg-green-100">
+      <div className={`sticky top-0 bg-white md:px-6 sm:px-3 ${scrolled ? "shadow-xl shadow-green-200":""}`}>
         <Header />
       </div>
       <Outlet />
